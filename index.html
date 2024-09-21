@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Vincenzo/aframe-particle-system-component/dist/aframe-particle-system-component.min.js"></script>
+    <title>3D Snowman with Static Snowflakes</title>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Softer ambient light -->
+      <a-light type="ambient" color="#ffffff" intensity="0.7"></a-light>
+  
+      <!-- Softer directional light -->
+      <a-light type="directional" color="#ffffff" position="-1 2 1" intensity="0.4"></a-light>
+
+      <!-- Sky background color -->
+      <a-sky color="#d4c3fc"></a-sky>
+
+      <!-- Snowman body - Two spheres stacked -->
+      <a-sphere position="0 0.5 -3" radius="1.2" scale="1.2 1 1" color="#fdfbef"></a-sphere>
+      <a-sphere position="0 1.9 -3" radius="0.8" scale="1.1 1 1" color="#fdfbef"></a-sphere>
+
+      <!-- Face -->
+      <a-sphere position="-0.35 1.99 -2.25" radius="0.075" scale="1 1.3 1" color="#715470"></a-sphere> <!-- Left eye -->
+      <a-sphere position="0.35 1.99 -2.25" radius="0.075" scale="1 1.3 1" color="#715470"></a-sphere>  <!-- Right eye -->
+      <a-entity position="0 1.8 -2">
+        <a-curve 
+          path="-0.2 0 0, 0 0.1 0, 0.2 0 0" 
+          color="#715470" 
+          radius="0.05" 
+          scale="1 1 1" 
+          segments="20"
+        ></a-curve>
+      </a-entity> <!-- Smile -->
+      
+      <!-- Cheeks -->
+      <a-circle position="-0.45 1.85 -2.31" radius=".15" rotation="5 -30 0" color="#fcb891"></a-circle>
+      <a-circle position="0.45 1.85 -2.31" radius=".15" rotation="5 30 0" color="#fcb891"></a-circle>
+
+      <!-- Mouth (lowered and circles closer together, same purple as eyes) -->
+     <a-sphere position="-0.15 1.75 -2.2" radius="0.05" color="#715470"></a-sphere>
+     <a-sphere position="-0.08 1.73 -2.22" radius="0.05" color="#715470"></a-sphere>
+     <a-sphere position="0 1.72 -2.24" radius="0.05" color="#715470"></a-sphere>
+     <a-sphere position="0.08 1.73 -2.22" radius="0.05" color="#715470"></a-sphere>
+     <a-sphere position="0.15 1.75 -2.2" radius="0.05" color="#715470"></a-sphere>
+
+
+      <!-- Scarf - Torus (donut shape) -->
+      <a-torus position="0 1.3 -3" radius=".5" tube="0.05" color="#fcb891" rotation="90 0 0"></a-torus>
+      <a-sphere position=".6 1.47 -2.5" radius=".15" scale="1.5 1.2 1" color="#fcb891" rotation="10 40 0"></a-sphere>
+
+      <!-- Leaf Decoration on Scarf -->
+      
+      <a-circle position="0.75 1.45 -2.4" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 50"></a-circle>
+      <a-circle position="0.75 1.45 -2.4" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 90"></a-circle>
+     
+
+
+
+      
+
+      <!-- Snow piles -->
+      <a-sphere position="2.5 0.3 -3" radius="0.7" color="#fdfbef"></a-sphere>  <!-- Right pile, moved further right -->
+      <a-sphere position="-3.0 0.3 -3" radius="0.9" color="#fdfbef"></a-sphere>  <!-- Left pile, moved further back -->
+      <a-sphere position="-2.5 0.4 -2.8" radius="0.8" color="#fdfbef"></a-sphere>  <!-- Smaller left pile -->
+
+      <!-- Leaf on top of right pile -->
+      <a-circle position="2.5 0.8 -3" radius="0.1" scale="1 1.5 1" color="#b3ab87"></a-circle>
+
+
+      <!-- Leaf Decoration -->
+      <a-circle position="0.4 2.8 -3" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 -60"></a-circle>
+      <a-circle position="0.1 2.8 -3" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 60"></a-circle>
+      <a-circle position="0.1 2.9 -3" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 30"></a-circle>
+      <a-plane position="0.25 2.8 -3.002" width="0.02" height="0.7" color="#715470" rotation="0 0 -10"></a-plane>
+
+      <!-- Flower -->
+      <a-cylinder position="0.35 3.2 -3" radius=".07" height="0.01" rotation="90 0 0" color="#fb925d"></a-cylinder>
+      <a-circle position="0.35 3.2 -3.001" radius=".07" scale=".9 2.5 1" rotation="0 0 0" color="#fcb891"></a-circle>
+      <a-circle position="0.35 3.2 -3.001" radius=".07" scale=".9 2.5 1" rotation="0 0 60" color="#fcb891"></a-circle>
+      <a-circle position="0.35 3.2 -3.001" radius=".07" scale=".9 2.5 1" rotation="0 0 -60" color="#fcb891"></a-circle>
+
+      <!-- Sign -->
+      <a-entity 
+      geometry="primitive: plane; width: 2.7; height: 0.8" 
+      material="color: white; shader: flat"
+      position="2.4 2.3 -3"
+      rotation="0 0 0"
+      >
+
+      <a-text 
+      value="Welcome to Winter Wonderland" 
+      color="#000000" 
+      align="center" 
+      position="0 0 0.01" 
+      width="3.2"
+      ></a-text>
+      </a-entity>
+
+      <!-- Pole connecting the sign to the snow pile -->
+      <a-cylinder position="2.5 1.2 -3" radius="0.05" height="1.4" color="#8B4513"></a-cylinder>
+
+
+
+      <!-- Ground -->
+      <a-plane rotation="-90 0 0" width="10" height="10" color="#d0e0e0"></a-plane>
+      <a-sphere position=".5 0 -1.9" radius=".2" scale="1.2 1 1" color="#fdfbef"></a-sphere>
+      <a-sphere position=".7 0 -1.9" radius=".1" scale="1.2 1 1" color="#fdfbef"></a-sphere>
+      <a-sphere position="-1.5 0 -4" radius=".5" scale="1.5 1 1" color="#fdfbef"></a-sphere>
+      <a-sphere position="1.5 0 -4" radius=".5" scale="1.5 1 1" color="#fdfbef"></a-sphere>
+      
+      <a-circle position="1.85 0.5 -4" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 -30"></a-circle>
+      <a-circle position="1.65 0.6 -4" radius=".1" scale="1.1 2.5 1" color="#b3ab87" rotation="0 0 10"></a-circle>
+      <a-plane position="1.75 0.5 -4.002" width="0.02" height="0.7" color="#715470" rotation="0 0 -10"></a-plane>
+  
+      <!-- Balanced Snowflakes (manually placed small spheres) -->
+      <!-- Snowflakes in front and beside the snowman -->
+      <a-sphere position="0.5 3 -2.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.8 2.8 -2.7" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="1 3.2 -2" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-1 2.5 -2.2" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="0.3 4 -3" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.3 3.5 -2.8" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="0.7 3.5 -2.4" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.5 4.2 -2.5" radius="0.05" color="#ffffff"></a-sphere>
+
+      <!-- Snowflakes closer to the ground -->
+      <a-sphere position="0.2 0.5 -2.8" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.2 0.4 -2.9" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="0.5 0.3 -2.7" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.4 0.2 -2.6" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="0.3 0.6 -2.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-0.1 0.8 -2.4" radius="0.05" color="#ffffff"></a-sphere>
+
+      <!-- Snowflakes further away but balanced on sides -->
+      <a-sphere position="-2.5 4 -5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="2.8 5.5 -6.8" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-3 4.3 -6.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="2.3 4.8 -6.7" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-1.8 3.8 -5.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="1.5 4.2 -5.8" radius="0.05" color="#ffffff"></a-sphere>
+
+      <!-- More snowflakes scattered closer to camera and sides -->
+      <a-sphere position="1.2 2.5 -2.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-1.2 2.7 -2.8" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="1.5 3 -3.5" radius="0.05" color="#ffffff"></a-sphere>
+      <a-sphere position="-1.5 2.5 -2.5" radius="0.05" color="#ffffff"></a-sphere>
+
+           <!-- Ground Snowflakes -->
+           <a-sphere position="0.2 0.1 -2.1" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.5 0.1 -2.3" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.4 0.1 -2.5" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.3 0.1 -2.7" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.6 0.1 -2.9" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.7 0.1 -2.2" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.8 0.1 -2.6" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.4 0.1 -2.8" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.5 0.1 -2.4" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.6 0.1 -2.5" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.7 0.1 -2.7" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.2 0.1 -2.3" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="-0.2 0.1 -2.4" radius="0.03" color="#ffffff"></a-sphere>
+           <a-sphere position="0.3 0.1 -2.6" radius="0.03" color="#ffffff"></a-sphere>
+
+
+      
+    </a-scene>
+  </body>
+</html>
